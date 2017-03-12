@@ -1,0 +1,379 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>Creepypasta</title>
+	<link rel="shortcut icon" href="favicon.png" type="image/png">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/adaptive.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+			$(window).on('load', function () {
+				var preloader = $('#page-preloader'),
+					spinner   = preloader.find('.spinner');
+				spinner.fadeOut();
+				preloader.delay(350).fadeOut('slow');
+			});
+			
+			$(document).ready(function(){
+				$(function() {
+					$('#pull').on('click', function() {
+						$('.nav-menu div').slideToggle();
+					});
+				});
+			});
+
+			$(document).ready(function(){
+				$('.right-block-content').find('h4').on('click', function(){
+				var h = $(this).parent().find('div.right-block-href');
+					if (h.hasClass('close')) {
+						h.slideDown(350, function(){
+							h.show().removeClass('close').addClass('open');
+						});
+					} else {
+						h.slideUp(350, function(){
+							h.hide().addClass('close').removeClass('open');
+						});
+					}					
+				});
+				
+				$('input[type="submit"]').on('click', function(){
+					if($(this).parent().attr("id") == 'login-box') {
+						if (confirm('Залогинься, и да залогинен будешь!')) {
+							alert('Login!');
+							$(this).blur();
+							return false;
+						} else {
+							$(this).blur();
+							return false;
+						}
+					} else {
+					
+						if($(this).parent().attr("id") == 'content-box') {
+							$.ajax({
+								url: "block.html",
+								cache: false,
+								success: function(html){
+									$(html).insertBefore('#content-box').hide().slideDown('show');
+								},
+								error: function(html){
+									$('#content-box').find('input').hide().fadeIn(200, function(){
+										$(this).val('К сожалению, истории закончились :(');
+									});
+								}
+							});
+							return false;
+						} else {
+							$(this).blur();
+							alert('Click работает, ajax уже выехал');
+							return false;
+						}
+					}
+				});
+				
+				
+				$('.center-block').on('click', function(){
+					$(this).trigger('mouseenter');
+				});
+			});
+	</script>
+	
+	<style>
+	#page-preloader {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: #000;
+		z-index: 100500;
+	}
+
+	#page-preloader .spinner {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		background: url('img/spinner.jpg') /*no-repeat 50% 50%*/;
+		background-size: contain;
+		margin: -25px 0 0 -25px;
+	}
+	</style>
+</head>
+
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+	<div class="menu">
+		<ul>
+			<li><div class="logo"><a href="/creepy/index.html"></a></div></li>
+			<li class="active"><a href="/creepy/index.html">Главная</a></li>
+			<li><a href="/creepy/content.html">Песочница</a></li>
+			<li><a href="/creepy">Видеозаписи</a></li>
+			<li><a href="/creepy">Что такое крипипаста?</a></li>
+			<li><a href="/creepy">Правила</a></li>
+			<li><a href="/creepy">Добавить видео</a></li>
+			<li><a href="/creepy">Обсуждения</a></li>
+			<li><a href="/creepy">Прислать историю</a></li>
+		</ul>
+	</div>
+		<div class="nav-menu">
+			  <a href="/creepy/index.html" class="logo"></a>
+			  <p>Главная</p>
+			  <a id="pull"></a>
+				  <div id="lang" style="display: none;">
+				  	<ul>
+				  		<li class="active"><a href="/creepy/index.html">Главная</a></li>
+						<li><a href="/creepy/content.html">Песочница</a></li>
+						<li><a href="/creepy">Видеозаписи</a></li>
+						<li><a href="/creepy">Что такое крипипаста?</a></li>
+						<li><a href="/creepy">Правила</a></li>
+						<li><a href="/creepy">Добавить видео</a></li>
+						<li><a href="/creepy">Обсуждения</a></li>
+						<li><a href="/creepy">Прислать историю</a></li>
+					  	<li><h4>Поменять язык:</h4></li>
+						<li class="active"><a href="#">Русский</a></li>
+						<li><a href="#">English</a></li>
+					</ul>
+				  </div>
+  		</div>
+	
+	
+<div class="main">
+	<h1>Welcome to Creepypasta!</h1>
+		<div class="left-block">
+		
+			<div class="left-block-video">
+				<div class="block-video light-block"><div class="video-play-icon"></div></div>
+				<h4>Как заключить договор с дьяволом?</h4>
+			</div>
+			
+			<div class="left-block-video">
+				<div class="block-video light-block"><div class="video-play-icon"></div></div>
+				<h4>Это же Крипипаста! О боже мой</h4>
+			</div>
+			
+			<div class="left-block-video">
+				<div class="block-video light-block"><div class="video-play-icon"></div></div>
+				<h4>Смотри как круто скрывается текст</h4>
+			</div>
+			
+			<div class="left-block-video">
+				<div class="block-video light-block"><div class="video-play-icon"></div></div>
+				<h4>Видосы и мемы по самым низким текстам</h4>
+			</div>
+			
+			<div class="left-block-video">
+				<div class="block-video light-block"><div class="video-play-icon"></div></div>
+				<h4>Призвать дьявола бесплатно без смс</h4>
+			</div>
+			
+			<div class="left-block-video">
+				<div class="block-video light-block"><div class="video-play-icon"></div></div>
+				<h4>Мама, я сатанист! Радуйся!!!</h4>
+			</div>
+
+		</div>
+		
+		<div class="center-block-all">
+		
+			<div class="center-block">
+				<div class="center-content-block light-block">
+					<h2><a href="/creepy/content.html">Я ненавижу тебя, Томми!</a></h2>
+					<div class="content-block-separate"></div>
+					<div class="content-text-block">
+						<p>— Да, чёрт возьми! Да! — широко улыбаясь и смеясь, Томми крутился в кресле перед компьютером. — Ма-а-ам! Мама! Меня опубликовали!</p>
+						<p>— Молодец, сынок, — мама положила руку на голову мальчика. — Ты доволен?</p>
+						<p>— Угу! — закивал головой Томми, на что женщина тепло улыбнулась.</p>
+						<p>— А-а-а, та писанина? — на пороге появился мужчина — отец мальчика. — Опубликовали?</p>
+						<p>— Да, Джордж, — вступилась за сына мать. — У твоего сына...</p>
+						<a href="/creepy/content.html">[Читать полностью]</a>
+					</div>
+				</div>
+				<div class="content-info-block dark-block">
+					<p>Опубликовано: <a href="javascript:void(0);">12-09-2016</a> в 04:53</p>
+					<p class="separate"> | </p>
+					<p>Автор: <a href="javascript:void(0);">username</a></p>
+					<p class="separate second"> | </p>
+					<p><a href="javascript:void(0);">15 комментариев</a></p>
+				</div>
+			</div>
+			
+			<div class="center-block">
+				<div class="center-content-block light-block">
+					<h2><a href="javascript:void(0);">Просто дописать</a></h2>
+					<div class="content-block-separate"></div>
+					<div class="content-text-block">
+						<p>— Да, чёрт возьми! Да! — широко улыбаясь и смеясь, Томми крутился в кресле перед компьютером. — Ма-а-ам! Мама! Меня опубликовали!</p>
+						<p>— Молодец, сынок, — мама положила руку на голову мальчика. — Ты доволен?</p>
+						<p>— Угу! — закивал головой Томми, на что женщина тепло улыбнулась.</p>
+						<p>— А-а-а, та писанина? — на пороге появился мужчина — отец мальчика. — Опубликовали?</p>
+						<p>— Да, Джордж, — вступилась за сына мать. — У твоего сына...</p>
+						<a href="javascript:void(0);">[Читать полностью]</a>
+					</div>
+				</div>
+				<div class="content-info-block dark-block">
+					<p>Опубликовано: <a href="/creepy/content.html">12-09-2016</a> в 04:53</p>
+					<p class="separate"> | </p>
+					<p>Автор: <a href="/creepy/content.html">username</a></p>
+					<p class="separate second"> | </p>
+					<p><a href="javascript:void(0);">2 комментария</a></p>
+				</div>
+			</div>
+			
+			<div class="center-block">
+				<div class="center-content-block light-block">
+					<h2><a href="/creepy/content.html">Что я вижу</a></h2>
+					<div class="content-block-separate"></div>
+					<div class="content-text-block">
+						<p>— Да, чёрт возьми! Да! — широко улыбаясь и смеясь, Томми крутился в кресле перед компьютером. — Ма-а-ам! Мама! Меня опубликовали!</p>
+						<p>— Молодец, сынок, — мама положила руку на голову мальчика. — Ты доволен?</p>
+						<p>— Угу! — закивал головой Томми, на что женщина тепло улыбнулась.</p>
+						<p>— А-а-а, та писанина? — на пороге появился мужчина — отец мальчика. — Опубликовали?</p>
+						<p>— Да, Джордж, — вступилась за сына мать. — У твоего сына...</p>
+						<a href="/creepy/content.html">[Читать полностью]</a>
+					</div>
+				</div>
+				<div class="content-info-block dark-block">
+					<p>Опубликовано: <a href="javascript:void(0);">12-09-2016</a> в 04:53</p>
+					<p class="separate"> | </p>
+					<p>Автор: <a href="javascript:void(0);">username</a></p>
+					<p class="separate second"> | </p>
+					<p><a href="javascript:void(0);">Будь первым!</a></p>
+				</div>
+			</div>
+			
+			<div class="center-block">
+				<form action="" method="post" id="content-box">
+					<input type="submit" value="Загрузить ещё" class="light-block">
+				</form>
+			</div>
+		</div>
+		
+		<div class="right-block">
+		
+			<div class="right-block-content light-block">
+				<form action="" method="post" id="login-box">
+					<input type="text" id="main-login" name="main-login" placeholder="Логин">
+					<input type="text" id="main-pass" name="main-pass" placeholder="Пароль">
+					<input type="submit" value="Войти">
+				</form>
+				<a href="javascript:void(0);">Использовать профиль Вконтакте</a>
+				<a href="javascript:void(0);">Забыли пароль?</a>
+			</div>
+			
+			<div class="right-block-content light-block">
+				<form action="" method="post" id="search-box">
+					<input type="text" id="main-search" name="main-search" placeholder="Поиск">
+				</form>
+				<a href="javascript:void(0);">Лучшие</a>
+				<a href="javascript:void(0);">Случайная история</a>
+			</div>
+			
+			<div class="right-block-content light-block">
+				<h4>Лучшие крипипасты месяца</h4>
+				<div class="open right-block-href">
+					<a href="javascript:void(0);">Мишутка</a>
+					<a href="javascript:void(0);">Просто дописать</a>
+					<a href="javascript:void(0);">Вик. Эпизод 0</a>
+					<a href="javascript:void(0);">Я ненавижу тебя, Томми</a>
+					<a href="javascript:void(0);">Я тебя найду (переделанная)</a>
+					<a href="javascript:void(0);">Часовая бомба внутри меня</a>
+					<a href="javascript:void(0);">I Hate Kids</a>
+					<a href="javascript:void(0);">Зимний поцелуй</a>
+					<a href="javascript:void(0);">М.Е.Т.Р.О I ИСПЫТАНИЯ</a>
+				</div>
+			</div>
+			
+			<div class="right-block-content light-block">
+				<h4>Обсуждаемые крипипасты</h4>
+				<div class="close right-block-href">
+					<a href="javascript:void(0);">Мишутка</a>
+					<a href="javascript:void(0);">Просто дописать</a>
+					<a href="javascript:void(0);">Вик. Эпизод 0</a>
+					<a href="javascript:void(0);">Я ненавижу тебя, Томми</a>
+					<a href="javascript:void(0);">Я тебя найду (переделанная)</a>
+					<a href="javascript:void(0);">Часовая бомба внутри меня</a>
+					<a href="javascript:void(0);">I Hate Kids</a>
+					<a href="javascript:void(0);">Зимний поцелуй</a>
+					<a href="javascript:void(0);">М.Е.Т.Р.О I ИСПЫТАНИЯ</a>
+				</div>
+			</div>
+			
+			<div class="right-block-content light-block">
+				<h4>Лучшие авторы и критики</h4>
+				<div class="close right-block-href">
+					<a href="javascript:void(0);">Мишутка</a>
+					<a href="javascript:void(0);">Просто дописать</a>
+					<a href="javascript:void(0);">Вик. Эпизод 0</a>
+					<a href="javascript:void(0);">Я ненавижу тебя, Томми</a>
+					<a href="javascript:void(0);">Я тебя найду (переделанная)</a>
+					<a href="javascript:void(0);">Часовая бомба внутри меня</a>
+					<a href="javascript:void(0);">I Hate Kids</a>
+					<a href="javascript:void(0);">Зимний поцелуй</a>
+					<a href="javascript:void(0);">М.Е.Т.Р.О I ИСПЫТАНИЯ</a>
+				</div>
+			</div>
+			
+			<div class="right-block-content light-block">
+				<h4>Новые видеозаписи</h4>
+				<div class="close right-block-href">
+					<a href="javascript:void(0);">Мишутка</a>
+					<a href="javascript:void(0);">Просто дописать</a>
+					<a href="javascript:void(0);">Вик. Эпизод 0</a>
+					<a href="javascript:void(0);">Я ненавижу тебя, Томми</a>
+					<a href="javascript:void(0);">Я тебя найду (переделанная)</a>
+					<a href="javascript:void(0);">Часовая бомба внутри меня</a>
+					<a href="javascript:void(0);">I Hate Kids</a>
+					<a href="javascript:void(0);">Зимний поцелуй</a>
+					<a href="javascript:void(0);">М.Е.Т.Р.О I ИСПЫТАНИЯ</a>
+				</div>
+			</div>
+			
+			
+			
+			<div class="right-block-content light-block">
+				<form action="" method="post" id="follow-box">
+					<input type="text" id="main-follow" name="main-follow" placeholder="E-mail">
+					<input type="submit" value="Подписаться">
+				</form>
+			</div>
+			
+			
+			<div class="right-block-content light-block">
+				<h4>Наши подписчики</h4>
+				<a href="javascript:void(0);">Елена Иванова</a>
+				<a href="javascript:void(0);">Елена Иванова</a>
+				<a href="javascript:void(0);">Елена Иванова</a>
+				<a href="javascript:void(0);">Елена Иванова</a>
+				<a href="javascript:void(0);">Елена Иванова</a>
+				<a href="javascript:void(0);">Елена Иванова</a>
+			</div>
+		</div>
+
+</div>
+
+<div class="footer">
+	<div class="footer-content">
+		<div class="left-footer">
+			<p>Kripipasta © 2017</p>
+		</div>
+		<div class="right-footer">
+			<form action="" method="post" id="follow-box">
+				<input type="text" id="main-follow" name="main-follow" placeholder="E-mail">
+				<input type="submit" value="Подписаться">
+			</form>
+			
+			<div class="footer-social-links">
+				<a href="javascript:void(0);" id="fb" title="Facebook"></a>
+				<a href="javascript:void(0);" id="vk" title="Vkontakte"></a>
+				<a href="javascript:void(0);" id="ig" title="Instagram"></a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+	
+</html>
